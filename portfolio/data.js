@@ -50,6 +50,6 @@ window.PORTFOLIO = {
     { label: "GitHub", href: "https://github.com/akifshah7" },
     { label: "LinkedIn", href: "https://linkedin.com/in/akifshah" },
     { label: "Twitter / X", href: "#" },
-    { label: "Read.cv", href: "#" },
+    { label: "Read.cv", href: "../Akif_CV.pdf", download: "Akif_Shah_CV.pdf" },
   ],
 };

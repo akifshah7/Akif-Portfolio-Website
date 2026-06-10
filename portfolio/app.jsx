@@ -1,9 +1,9 @@
 /* Root app */
-const { useEffect: useEffectA } = React;
+const { useEffect: useEffectA, useLayoutEffect } = React;
 
 function App() {
   // global reveal observer (covers all .reveal across sections)
-  useEffectA(() => {
+  useLayoutEffect(() => {
     const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
     const nodes = document.querySelectorAll(".reveal");
     if (reduce) { nodes.forEach((n) => n.classList.add("in")); return; }

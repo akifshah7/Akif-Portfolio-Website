@@ -37,6 +37,7 @@ function Hero() {
   useEffect(() => {
     const el = ref.current;
     const on = () => { const y = scrollY; if (el) el.style.transform = `translateY(${y * 0.12}px)`; el.style.opacity = String(Math.max(0, 1 - y / 700)); };
+    on(); // initialize immediately so any restored scroll position is reflected
     addEventListener("scroll", on, { passive: true });
     return () => removeEventListener("scroll", on);
   }, []);
@@ -203,7 +204,7 @@ function Contact() {
         <a href={"mailto:" + D.email} className="btn btn-primary"><IMail /> {D.email}</a>
       </Magnetic>
       <div className="socials reveal" style={{ transitionDelay: ".15s" }}>
-        {D.socials.map((s, k) => <a href={s.href} key={k} target="_blank" rel="noopener">{s.label} <IUpRight width="13" height="13" /></a>)}
+        {D.socials.map((s, k) => <a href={s.href} key={k} target="_blank" rel="noopener" {...(s.download ? { download: s.download } : {})}>{s.label} <IUpRight width="13" height="13" /></a>)}
       </div>
     </section>
   );
